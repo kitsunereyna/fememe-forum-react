@@ -1,0 +1,76 @@
+.login-panel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 43px;
+    width: 450px;
+    padding: 50px 50px;
+}
+  
+.input {
+    width: 70%;
+    padding: 15px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: none;
+    border-radius: 37px;
+    box-sizing: border-box;
+    background-color: #E5E6E9;
+    font-weight: 400;
+    font-size: 15px;
+    
+    color: rgba(0, 0, 0, 0.4);
+}
+  
+.signup {
+    background-color: #FF5964;
+    color: white;
+    padding: 14px 20px;
+    margin-top: 30px;
+    border: none;
+    cursor: pointer;
+    width: 150px;
+    border-radius: 37px;
+    font-family: 'Arvo';
+    font-weight: 700;
+    font-size: 20px;
+    color:white
+  }
+  
+  button:hover {
+    opacity: 0.7;
+  }
+
+  .login{
+    font-family: 'Arvo';
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 44px;
+    color: #FF5964;
+    margin-bottom: 60px;
+}
+
+.register-link{
+    display: flex;
+    flex-direction: row;
+    font-family: 'Arvo';
+    font-weight: 700;
+    margin-top: 40px;
+    font-size: 15px;
+    align-items: center;
+}
+
+.link{
+    color: #FF5964;
+    margin-left: 5px;
+    text-decoration: none;
+    font-family: 'Arvo';
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.link:hover {
+    opacity: 0.7;
+}
