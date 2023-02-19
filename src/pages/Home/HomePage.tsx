@@ -15,7 +15,7 @@ const HomePage = () => {
   ));
 
   return (
-    <Layout>
+    <Layout title="Home">
       <div className="flex flex-col gap-6">{renderedPosts}</div>
     </Layout>
   );

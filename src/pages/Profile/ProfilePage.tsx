@@ -22,7 +22,7 @@ const ProfilePage = () => {
   ));
 
   return (
-    <Layout>
+    <Layout title={user?.username || "User"}>
       <div className="h-full flex justify-center items-center">
         <div className="p-10 rounded-2xl bg-white w-4/5">
           <div className="flex justify-between items-center">

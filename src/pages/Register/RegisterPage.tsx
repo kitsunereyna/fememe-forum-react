@@ -46,7 +46,7 @@ const RegisterPage = () => {
   };
 
   return (
-    <Layout>
+    <Layout title="Register">
       <div className="h-full flex justify-center items-center">
         <div className="login-panel">
           <p className="login">Register</p>

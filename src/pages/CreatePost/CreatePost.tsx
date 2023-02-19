@@ -63,7 +63,7 @@ const CreatePost = () => {
   };
 
   return (
-    <Layout>
+    <Layout title="Create Post">
       <div className="flex justify-center items-center h-full">
         <div className="panel">
           <p className="post-create">Create a post</p>

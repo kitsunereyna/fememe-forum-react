@@ -63,7 +63,7 @@ const PostPage = () => {
     nav(0);
   };
   return (
-    <Layout>
+    <Layout title={post?.title || "Post"}>
       <div className="post">
         <div className="user-info">
           <img src={post?.avatar} alt="Avatar" className="avatar" />

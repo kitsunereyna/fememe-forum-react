@@ -38,7 +38,7 @@ const UpdatePostPage = () => {
   };
 
   return (
-    <Layout>
+    <Layout title="Update Post">
       <div className="flex justify-center items-center h-full">
         <div className="panel w-full">
           <p className="post-update">Update a post</p>

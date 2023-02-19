@@ -38,7 +38,7 @@ const LoginPage = () => {
   };
 
   return (
-    <Layout>
+    <Layout title="Login">
       <div className="h-full flex justify-center items-center">
         <div className="login-panel">
           <p className="login">Login</p>
