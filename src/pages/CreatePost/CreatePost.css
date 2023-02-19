@@ -24,7 +24,7 @@ input[type=text] {
     color: rgba(0, 0, 0, 0.4);
 }
 
-textarea {
+.textarea {
     width: 100%;
     height: 100px;
     padding: 12px 20px;
@@ -54,6 +54,21 @@ textarea {
     font-size: 20px;
     color:white
   } 
+
+  .submit {
+    background-color: #FF5964;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+    width: 150px;
+    border-radius: 37px;
+    font-family: 'Arvo';
+    font-weight: 700;
+    font-size: 20px;
+    color:white
+  } 
   
 .post-create{
     font-family: 'Arvo';
@@ -62,6 +77,14 @@ textarea {
     line-height: 44px;
     color: #FF5964;
     margin-bottom: 50px;
+}
+.post-update{
+    font-family: 'Arvo';
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 44px;
+    color: #FF5964;
+    margin-bottom: 10px;
 }
 
 .publish:hover{

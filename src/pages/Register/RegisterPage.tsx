@@ -1,14 +1,20 @@
 import React, { useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import "../Login/LoginPage.css";
-import {Link} from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom";
+import { AuthResponse, RegisterDto } from "../../dto/user";
+import { registerUser, saveAuthToLocalStorage } from "../../api/user";
+import { useUserStore } from "../../store/userStore";
+import { AVATARS } from "../../mock/avatars";
 
 const RegisterPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const fillUserState = useUserStore(state => state.fillUserState);
+  const navigate = useNavigate();
 
-  const onRegisterClick = () => {
+  const onRegisterClick = async () => {
     const values = [username, password, email];
     const isValid = values.every(
       value => value !== undefined && value !== null && value !== ""
@@ -17,16 +23,32 @@ const RegisterPage = () => {
     if (!isValid) {
       return;
     }
+    const randomAvatar = AVATARS[Math.floor(Math.random() * AVATARS.length)];
 
-    const registerDto = { username: username, password: password, email: email};
-    console.log(registerDto);
+    const registerDto: RegisterDto = {
+      username: username,
+      password: password,
+      email: email,
+      avatar: randomAvatar,
+    };
+
+    const res = await registerUser(registerDto);
+
+    if (res.status !== 200) {
+      window.alert(res.data?.error);
+      return;
+    }
+
+    const authRes: AuthResponse = res.data;
+    fillUserState(authRes.token, authRes.user);
+    saveAuthToLocalStorage(authRes);
+    navigate("/");
   };
-
 
   return (
     <Layout>
       <div className="h-full flex justify-center items-center">
-        <div className="login-panel -mt-24">
+        <div className="login-panel">
           <p className="login">Register</p>
 
           <input
@@ -57,11 +79,13 @@ const RegisterPage = () => {
             required
           />
 
-          <button onClick={onRegisterClick} className="signup">Sign up</button>
+          <button onClick={onRegisterClick} className="signup">
+            Sign up
+          </button>
 
           <div className="register-link">
             <p>Already have an account?</p>
-            <Link to="/login" className="link" >
+            <Link to="/login" className="link">
               Log in!
             </Link>
           </div>

@@ -22,7 +22,7 @@ const PostItem = ({ post }: PostProps) => {
   return (
     <div className="post">
       <div className="user-info">
-        <img src="avatar.jpg" alt="Avatar" className="avatar" />
+        <img src={post.avatar} alt="Avatar" className="avatar" />
         <p className="username">{post.username}</p>
         <p className="posting-date">
           posted {formatDate(post.date || Date.now(), "DD-MM-YYYY")}
@@ -32,6 +32,7 @@ const PostItem = ({ post }: PostProps) => {
       <div className="post-content">
         <p className="post-title">{post.title}</p>
         <p className="post-text">{post.text}</p>
+        <p className="post-tags font-semibold text-[#78B5F6]">#{post.tags}</p>
       </div>
 
       <div className="buttons">

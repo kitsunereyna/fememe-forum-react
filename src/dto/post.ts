@@ -3,4 +3,9 @@ export interface CreatePostDto {
   title: string;
   text: string;
   tags: string[];
+  avatar: string;
+}
+
+export interface UpdatePostDto {
+  text: string;
 }

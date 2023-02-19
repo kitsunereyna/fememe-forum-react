@@ -9,7 +9,10 @@ const Layout = ({children}: LayoutProps) => {
   return (
     <div className="w-screen h-screen bg-gray-200 overflow-auto">
         <Navbar />
+        <div className='p-16'>
         {children}
+
+        </div>
     </div>
   )
 }

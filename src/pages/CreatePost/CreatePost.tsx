@@ -5,11 +5,13 @@ import { CreatePostDto } from "../../dto/post";
 import { TAGS } from "../../mock/tags";
 import { useNavigate } from "react-router-dom";
 import "./CreatePost.css";
+import { useUserStore } from "../../store/userStore";
 
 const CreatePost = () => {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const [selectedTagID, setSelectedTagID] = useState("");
+  const user = useUserStore(state => state.user);
 
   const navigate = useNavigate();
 
@@ -39,8 +41,12 @@ const CreatePost = () => {
     }
     const tag = TAGS.find(tag => tag.id === selectedTagID);
 
+    if (user === null) {
+      return;
+    }
     const newPost: CreatePostDto = {
-      username: "TEST_NAME",
+      avatar: user.avatar,
+      username: user.username,
       title: title,
       text: text,
       tags: [tag!.name],
@@ -59,7 +65,7 @@ const CreatePost = () => {
   return (
     <Layout>
       <div className="flex justify-center items-center h-full">
-        <div className="panel -mt-24">
+        <div className="panel">
           <p className="post-create">Create a post</p>
 
           <div className="post-input">
@@ -83,6 +89,7 @@ const CreatePost = () => {
                 <span className="text-[#FF5964]">details</span>!
               </p>
               <textarea
+                className="textarea"
                 value={text}
                 onChange={e => setText(e.target.value)}
                 placeholder="Write here"
