@@ -37,7 +37,7 @@ const PostPage = () => {
   ));
 
   const onRepostClick = () => {
-    const fullUrl = "https://gutsy-stove-production.up.railway.app" + url;
+    const fullUrl = "https://fememe-forum-react.vercel.app" + url;
     navigator.clipboard.writeText(fullUrl);
     alert("Copied to clipboad!");
   };
