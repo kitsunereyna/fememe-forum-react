@@ -6,6 +6,7 @@ import LoginPage from "../pages/Login/LoginPage";
 import PostPage from "../pages/Post/PostPage";
 import ProfilePage from "../pages/Profile/ProfilePage";
 import RegisterPage from "../pages/Register/RegisterPage";
+import SearchPostPage from "../pages/SearchPost/SearchPostPage";
 import UpdatePostPage from "../pages/UpdatePost/UpdatePostPage";
 import ProtectedRoutes from "./ProtectedRoutes";
 
@@ -14,6 +15,7 @@ const Routing = () => {
     <>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/search/:q" element={<SearchPostPage />} />
         <Route path="/post/:id" element={<PostPage />} />
 
         <Route path="/login" element={<LoginPage />} />

@@ -14,6 +14,12 @@ export const registerUser = async (dto: RegisterDto) => {
   return response;
 };
 
+export const deleteUser = async (username: string) => {
+  const response = await axios.delete(`${BASE_URL}/users/${username}`);
+
+  return response;
+};
+
 export const saveAuthToLocalStorage = (authRes: AuthResponse) => {
   localStorage.setItem("auth", JSON.stringify(authRes));
 };

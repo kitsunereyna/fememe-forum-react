@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import CreatePostIcon from "../Icons/CreatePostIcon";
 import { useUserStore } from "../../store/userStore";
 import { clearLocalStorage } from "../../api/user";
+import Search from "../Search/Search";
 
 const Navbar = () => {
   const isAuth = useUserStore(state => state.isAuth);
@@ -30,7 +31,6 @@ const Navbar = () => {
         Profile
       </Link>
       <button onClick={onLogoutClick}>
-        {" "}
         <p className="link-text">Logout</p>{" "}
       </button>
     </>
@@ -51,8 +51,7 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <input type="search" placeholder="Search Fememe" name="search" required />
-
+      <Search />
       <div className="right-corner">
         {renderedCreateButton}
 

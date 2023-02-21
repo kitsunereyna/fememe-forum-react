@@ -14,6 +14,12 @@ export const getPostById = async (id: string) => {
   return response;
 };
 
+export const getPostByTitle = async (q: string) => {
+  const response = await axios.get(`${BASE_URL}/api/posts/title/${q}`);
+
+  return response;
+};
+
 export const getPostByUsername = async (username: string) => {
   const response = await axios.get(`${BASE_URL}/api/posts/user/${username}`);
 

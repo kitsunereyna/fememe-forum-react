@@ -1,6 +1,8 @@
 import React from "react";
 import { useQuery } from "react-query";
+import { useNavigate } from "react-router-dom";
 import { getPostByUsername } from "../../api/post";
+import { clearLocalStorage, deleteUser } from "../../api/user";
 import Layout from "../../components/Layout/Layout";
 import PostItem from "../../components/Post/Post";
 import UserPostItem from "../../components/UserPostItem/UserPostItem";
@@ -10,6 +12,7 @@ import "./ProfilePage.css";
 
 const ProfilePage = () => {
   const user = useUserStore(state => state.user);
+  const nav = useNavigate();
 
   const { data } = useQuery(
     "user-posts",
@@ -20,6 +23,18 @@ const ProfilePage = () => {
   const renderedPosts = data?.data?.map((post: Post) => (
     <UserPostItem post={post} key={post.id} />
   ));
+
+  const onDeleteClick = async () => {
+    const res = await deleteUser(user!.username);
+
+    if (res.status !== 200) {
+      alert(res?.data?.error);
+      return;
+    }
+
+    clearLocalStorage();
+    nav(0);
+  };
 
   return (
     <Layout title={user?.username || "User"}>
@@ -41,7 +56,10 @@ const ProfilePage = () => {
             </div>
 
             <div>
-              <button className="px-5 py-2 text-white bg-[#FF5964] rounded-2xl">
+              <button
+                onClick={onDeleteClick}
+                className="px-5 py-2 text-white bg-[#FF5964] rounded-2xl"
+              >
                 Delete account
               </button>
             </div>
