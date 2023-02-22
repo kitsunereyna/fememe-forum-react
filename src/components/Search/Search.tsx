@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import SearchIcon from "../Icons/SearchIcon";
 
 const Search = () => {
   const [text, setText] = React.useState("");
@@ -15,7 +16,7 @@ const Search = () => {
     nav(`/search/${q}`);
   };
   return (
-    <div>
+    <div className="flex gap-3">
       <input
         value={text}
         onChange={e => setText(e.target.value)}
@@ -25,7 +26,7 @@ const Search = () => {
         required
       />
 
-      <button onClick={onSearchClick}>Search</button>
+      <button onClick={onSearchClick}> <SearchIcon/> </button>
     </div>
   );
 };

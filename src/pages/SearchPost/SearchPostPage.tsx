@@ -20,7 +20,7 @@ const SearchPostPage = () => {
 
   return (
     <Layout title="Home">
-      <div className="text-lg font-bold mb-5">{foundText}</div>
+      <div className="text-lg underline text-gray-500 font-bold mb-5 ml-72 ">{foundText}</div>
       <div className="flex flex-col gap-6">{renderedPosts}</div>
     </Layout>
   );

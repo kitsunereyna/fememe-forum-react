@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import CommentIcon from "../Icons/CommentIcon";
 import HeartIcon from "../Icons/HeartIcon";
 import ShareIcon from "../Icons/ShareIcon";
 import { Link } from "react-router-dom";
 import { Post } from "../../types/post";
 import { formatDate } from "../../helpers/dateFormat";
+import ClickedHeartIcon from "../Icons/ClickedHeartIcon";
 
 interface PostProps {
   post: Post;
@@ -12,6 +13,12 @@ interface PostProps {
 
 const PostItem = ({ post }: PostProps) => {
   const url = `/post/${post.id}`;
+  const [isLiked, setIsLiked] = useState(Boolean);
+
+  const onLikeClick = async () => {
+    setIsLiked(true);
+    isLiked ? <ClickedHeartIcon /> : <HeartIcon />;
+  };
 
   const onRepostClick = () => {
     const fullUrl = "https://fememe-forum-react.vercel.app" + url;
@@ -28,7 +35,6 @@ const PostItem = ({ post }: PostProps) => {
           posted {formatDate(post.date || Date.now(), "DD-MM-YYYY")}
         </p>
       </div>
-
       <div className="post-content">
         <p className="post-title">{post.title}</p>
         <p className="post-text">{post.text}</p>
@@ -36,7 +42,7 @@ const PostItem = ({ post }: PostProps) => {
       </div>
 
       <div className="buttons">
-        <button>
+        <button onClick={onLikeClick}>
           <HeartIcon />
         </button>
         <button>
