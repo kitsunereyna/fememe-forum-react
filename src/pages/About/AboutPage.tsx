@@ -24,7 +24,7 @@ const AboutPage = () => {
             <img className="w-60 h-90" src={Dana} alt="dev" />
             <div className="flex flex-col justify-center items-center ">
               <p className="pt-3 font-bold text-xl"> Dana </p>
-              <p> Front-end, back-end dev</p>
+              <p> Front-end & back-end dev</p>
             </div>
           </div>
 
