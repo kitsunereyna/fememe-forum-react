@@ -13,11 +13,10 @@ interface PostProps {
 
 const PostItem = ({ post }: PostProps) => {
   const url = `/post/${post.id}`;
-  const [isLiked, setIsLiked] = useState(Boolean);
+  const [isLiked, setIsLiked] = useState(false);
 
   const onLikeClick = async () => {
-    setIsLiked(true);
-    isLiked ? <ClickedHeartIcon /> : <HeartIcon />;
+    setIsLiked(!isLiked);
   };
 
   const onRepostClick = () => {
@@ -43,7 +42,7 @@ const PostItem = ({ post }: PostProps) => {
 
       <div className="buttons">
         <button onClick={onLikeClick}>
-          <HeartIcon />
+          {isLiked ? <ClickedHeartIcon /> : <HeartIcon />}
         </button>
         <button>
           <Link to={url}>
